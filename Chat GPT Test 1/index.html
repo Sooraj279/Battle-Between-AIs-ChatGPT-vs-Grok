@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <style>
+      /* Reset some defaults */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: #f5f5f5;
+      }
+
+      header {
+        background: linear-gradient(135deg, #6d5dfc, #c17efd);
+        color: #fff;
+        padding: 2rem 0;
+        text-align: center;
+      }
+
+      header h1 {
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+      }
+
+      header p {
+        font-size: 1.2rem;
+        font-style: italic;
+      }
+
+      nav {
+        margin-top: 1rem;
+      }
+
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 1rem;
+        font-size: 1.1rem;
+        transition: color 0.3s;
+      }
+
+      nav a:hover {
+        color: #ffeb3b;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 2rem auto;
+        padding: 0 2rem;
+      }
+
+      .section {
+        margin-bottom: 4rem;
+      }
+
+      .section h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: 2.5rem;
+        color: #6d5dfc;
+      }
+
+      /* About Section */
+      #about {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        background: #fff;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      #about img {
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 2rem;
+      }
+
+      #about .about-text {
+        flex: 1;
+        min-width: 250px;
+      }
+
+      /* Portfolio Section */
+      #portfolio .projects {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+
+      #portfolio .project {
+        background: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+
+      #portfolio .project:hover {
+        transform: translateY(-5px);
+      }
+
+      #portfolio .project img {
+        width: 100%;
+        display: block;
+      }
+
+      #portfolio .project .project-info {
+        padding: 1rem;
+      }
+
+      /* Contact Section */
+      #contact {
+        text-align: center;
+        background: #fff;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      #contact form {
+        display: flex;
+        flex-direction: column;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      #contact form input,
+      #contact form textarea {
+        padding: 1rem;
+        margin: 0.5rem 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1rem;
+      }
+
+      #contact form button {
+        padding: 1rem;
+        border: none;
+        background: #6d5dfc;
+        color: #fff;
+        font-size: 1.1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      #contact form button:hover {
+        background: #5a49d1;
+      }
+
+      footer {
+        text-align: center;
+        padding: 1rem 0;
+        background: #333;
+        color: #fff;
+      }
+
+      @media (max-width: 768px) {
+        #about {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        #about img {
+          margin: 0 0 1rem 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <h1>John Doe</h1>
+      <p>Web Developer & Designer</p>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <!-- About Section -->
+      <section id="about" class="section">
+        <img src="https://via.placeholder.com/250" alt="Profile Picture" />
+        <div class="about-text">
+          <h2>About Me</h2>
+          <p>
+            I am a passionate web developer and designer with experience in
+            building beautiful and responsive websites. I love combining
+            creativity with technical skills to create unique digital
+            experiences.
+          </p>
+        </div>
+      </section>
+
+      <!-- Portfolio Section -->
+      <section id="portfolio" class="section">
+        <h2>My Work</h2>
+        <div class="projects">
+          <div class="project">
+            <img src="https://via.placeholder.com/400x250" alt="Project 1" />
+            <div class="project-info">
+              <h3>Project One</h3>
+              <p>
+                A creative project description that highlights key features and
+                technologies used.
+              </p>
+            </div>
+          </div>
+          <div class="project">
+            <img src="https://via.placeholder.com/400x250" alt="Project 2" />
+            <div class="project-info">
+              <h3>Project Two</h3>
+              <p>
+                A creative project description that highlights key features and
+                technologies used.
+              </p>
+            </div>
+          </div>
+          <div class="project">
+            <img src="https://via.placeholder.com/400x250" alt="Project 3" />
+            <div class="project-info">
+              <h3>Project Three</h3>
+              <p>
+                A creative project description that highlights key features and
+                technologies used.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="section">
+        <h2>Contact Me</h2>
+        <form>
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <textarea rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 John Doe. All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>

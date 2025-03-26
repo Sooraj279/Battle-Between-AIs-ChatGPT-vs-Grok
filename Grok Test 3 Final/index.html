@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lato:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* CSS Variables */
+      :root {
+        --primary-color: #2c3e50;
+        --secondary-color: #ecf0f1;
+        --accent-color: #1abc9c;
+        --text-color: #34495e;
+        --light-bg: #f9f9f9;
+      }
+
+      /* Global Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Lato", sans-serif;
+        color: var(--text-color);
+        line-height: 1.6;
+        background-color: var(--secondary-color);
+        scroll-behavior: smooth;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Montserrat", sans-serif;
+        color: var(--primary-color);
+      }
+      a {
+        text-decoration: none;
+        color: var(--accent-color);
+      }
+      a:hover {
+        color: #16a085;
+      }
+
+      /* Header and Navigation */
+      header {
+        background-color: #fff;
+        padding: 1rem 2rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--primary-color);
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+      }
+      nav ul li {
+        margin-left: 2rem;
+      }
+      nav a {
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 1px;
+        transition: color 0.3s, border-bottom 0.3s;
+        border-bottom: 2px solid transparent;
+      }
+      nav a:hover,
+      nav a:focus {
+        color: var(--accent-color);
+        border-bottom: 2px solid var(--accent-color);
+      }
+
+      /* Hero Section */
+      #hero {
+        background: linear-gradient(135deg, var(--primary-color), #34495e),
+          url("https://via.placeholder.com/1920x1080") no-repeat center/cover
+            fixed;
+        color: #fff;
+        text-align: center;
+        padding: 10rem 2rem;
+        position: relative;
+      }
+      #hero::after {
+        content: "";
+        position: absolute;
+        bottom: -20px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(
+          to right,
+          transparent,
+          var(--accent-color),
+          transparent
+        );
+      }
+      #hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        animation: fadeInUp 1s ease-out;
+      }
+      #hero p {
+        font-size: 1.25rem;
+        margin-bottom: 2rem;
+        animation: fadeInUp 1s ease-out 0.5s;
+        animation-fill-mode: both;
+      }
+      .btn {
+        display: inline-block;
+        padding: 0.75rem 2rem;
+        background-color: var(--accent-color);
+        color: #fff;
+        border-radius: 25px;
+        transition: background-color 0.3s, transform 0.3s;
+        font-weight: bold;
+        animation: fadeInUp 1s ease-out 1s;
+        animation-fill-mode: both;
+      }
+      .btn:hover,
+      .btn:focus {
+        background-color: #16a085;
+        transform: scale(1.05);
+      }
+
+      /* About Section */
+      #about {
+        padding: 5rem 2rem;
+        background-color: var(--light-bg);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      #about img {
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+      #about .about-text {
+        max-width: 600px;
+      }
+      #about h2 {
+        margin-bottom: 1.5rem;
+        position: relative;
+      }
+      #about h2::after {
+        content: "";
+        position: absolute;
+        width: 50px;
+        height: 3px;
+        background-color: var(--accent-color);
+        bottom: -10px;
+        left: 0;
+      }
+
+      /* Projects Section */
+      #projects {
+        padding: 5rem 2rem;
+        background-color: var(--secondary-color);
+      }
+      #projects h2 {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .project-card {
+        background-color: #fff;
+        padding: 1.5rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+        opacity: 0;
+        animation: fadeInUp 0.5s ease-out forwards;
+      }
+      .project-card:nth-child(1) {
+        animation-delay: 0.2s;
+      }
+      .project-card:nth-child(2) {
+        animation-delay: 0.4s;
+      }
+      .project-card:nth-child(3) {
+        animation-delay: 0.6s;
+      }
+      .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      }
+      .project-card img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+      }
+      .project-card h3 {
+        margin: 1rem 0 0.5rem;
+      }
+      .project-card p {
+        color: #7f8c8d;
+      }
+
+      /* Contact Section */
+      #contact {
+        padding: 5rem 2rem;
+        background-color: var(--light-bg);
+      }
+      #contact h2 {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      form {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      form label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+      }
+      form input,
+      form textarea {
+        width: 100%;
+        padding: 0.75rem;
+        margin-bottom: 1.5rem;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+        transition: border-color 0.3s;
+      }
+      form input:focus,
+      form textarea:focus {
+        border-color: var(--accent-color);
+        outline: none;
+      }
+      form button {
+        width: 100%;
+        padding: 1rem;
+        background-color: var(--accent-color);
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s;
+      }
+      form button:hover,
+      form button:focus {
+        background-color: #16a085;
+        transform: scale(1.02);
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--primary-color);
+        color: #fff;
+        text-align: center;
+        padding: 2rem;
+      }
+      footer a {
+        color: var(--accent-color);
+        margin: 0 1rem;
+        transition: color 0.3s;
+      }
+      footer a:hover {
+        color: #fff;
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        #hero {
+          padding: 6rem 1rem;
+        }
+        #hero h1 {
+          font-size: 2.5rem;
+        }
+        #about {
+          flex-direction: column;
+          text-align: center;
+        }
+        #about img {
+          margin-bottom: 2rem;
+        }
+        #about h2::after {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        nav ul {
+          flex-direction: column;
+          align-items: center;
+        }
+        nav ul li {
+          margin: 0.75rem 0;
+        }
+        .project-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">My Portfolio</div>
+        <ul>
+          <li><a href="#hero" aria-label="Home">Home</a></li>
+          <li><a href="#about" aria-label="About">About</a></li>
+          <li><a href="#projects" aria-label="Projects">Projects</a></li>
+          <li><a href="#contact" aria-label="Contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section id="hero">
+        <h1>Welcome to My Portfolio</h1>
+        <p>Showcasing my passion for crafting exceptional web experiences.</p>
+        <a href="#projects" class="btn">Explore My Work</a>
+      </section>
+      <section id="about">
+        <img src="https://via.placeholder.com/250" alt="Portrait of me" />
+        <div class="about-text">
+          <h2>About Me</h2>
+          <p>
+            I’m a web developer dedicated to building beautiful, functional
+            websites that leave a lasting impression. With a keen eye for design
+            and a love for clean code, I bring ideas to life.
+          </p>
+        </div>
+      </section>
+      <section id="projects">
+        <h2>My Projects</h2>
+        <div class="project-grid">
+          <div class="project-card">
+            <img src="https://via.placeholder.com/300x200" alt="Project 1" />
+            <h3>Project One</h3>
+            <p>A sleek website built to impress and perform.</p>
+            <a href="#" class="btn">View Project</a>
+          </div>
+          <div class="project-card">
+            <img src="https://via.placeholder.com/300x200" alt="Project 2" />
+            <h3>Project Two</h3>
+            <p>An innovative design with seamless functionality.</p>
+            <a href="#" class="btn">View Project</a>
+          </div>
+          <div class="project-card">
+            <img src="https://via.placeholder.com/300x200" alt="Project 3" />
+            <h3>Project Three</h3>
+            <p>A creative solution tailored to user needs.</p>
+            <a href="#" class="btn">View Project</a>
+          </div>
+        </div>
+      </section>
+      <section id="contact">
+        <h2>Get in Touch</h2>
+        <form>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required />
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2023 My Portfolio. All rights reserved.</p>
+      <div>
+        <a href="#">Twitter</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">GitHub</a>
+      </div>
+    </footer>
+  </body>
+</html>
